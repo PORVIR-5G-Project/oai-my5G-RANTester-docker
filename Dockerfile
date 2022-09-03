@@ -2,10 +2,11 @@ FROM golang:1.14.4-stretch
 
 WORKDIR /workspace
 
-RUN git clone --branch v1.0.0 https://github.com/my5G/my5G-RANTester.git \
-    && cd my5G-RANTester  \
+COPY my5G-RANTester my5G-RANTester/
+
+RUN cd my5G-RANTester  \
     && go mod download 
-    
+
 # Move to the binary path
 WORKDIR /workspace/my5G-RANTester/cmd
 
